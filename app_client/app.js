@@ -17,7 +17,7 @@
         controller: 'weatherCtrl',
         controllerAs: 'vm'
       })      
-      .otherwise({redirectTo: '/'});
+      .otherwise({redirectTo: '/weather/'});
 
     // use the HTML5 History API
     $locationProvider.html5Mode(

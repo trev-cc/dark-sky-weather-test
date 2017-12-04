@@ -1,6 +1,6 @@
 (function () {  
   angular
-    .module('airplaneApp')
+    .module('darkskyApp')
     .directive('dateNow', ['$filter', function($filter) {
         return {
             link: function( $scope, $element, $attrs) {

@@ -6,7 +6,7 @@
 
     weatherCtrl.$inject = ['$scope', 'DarkskyWeather'];
 
-    function weatherCtrl($scope, SelectedData, DarkskyWeather) {
+    function weatherCtrl($scope, DarkskyWeather) {
 
         var vm = this;
         console.log(window.location);
@@ -21,6 +21,7 @@
         //check selected Departure
         if (vm.lat !== null) {
             vm.lat = DarkskyWeather.lat;
+            console.log("This is your lat " + vm.lat);
         }
         
         //check selected Arrival

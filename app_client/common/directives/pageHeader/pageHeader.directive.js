@@ -1,7 +1,7 @@
 (function () {
 
   angular
-    .module('airplaneApp')
+    .module('darkskyApp')
     .directive('pageHeader', pageHeader);
 
   function pageHeader () {
