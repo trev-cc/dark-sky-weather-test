@@ -4,7 +4,7 @@
         .module('darkskyApp')
         .controller('weatherCtrl', weatherCtrl);
 
-    weatherCtrl.$inject = ['$scope', 'SelectedData', 'DarkskyWeather'];
+    weatherCtrl.$inject = ['$scope', 'DarkskyWeather'];
 
     function weatherCtrl($scope, SelectedData, DarkskyWeather) {
 
@@ -13,18 +13,19 @@
 
         vm.content = "Weather";
 
-        vm.selectedDepartureICAO = "";
-        vm.selectedArrivalICAO = "";
-        vm.selectedWeight = "";
+        vm.lat = "32.7356900";
+        vm.lon = "-97.1080700";
+        //vm.selectedArrivalICAO = "";
+        //vm.selectedWeight = "";
 
         //check selected Departure
-        if (SelectedData.selectedDepartureICAO !== null) {
-            vm.selectedDepartureICAO = SelectedData.selectedDepartureICAO;
+        if (vm.lat !== null) {
+            vm.lat = DarkskyWeather.lat;
         }
         
         //check selected Arrival
-        if (SelectedData.selectedArrivalICAO !== null) {
-            vm.selectedArrivalICAO = SelectedData.selectedArrivalICAO;
+        if (vm.lon !== null) {
+            vm.lon = DarkskyWeather.lon;
         }
         /*
         //check selected weight
@@ -36,9 +37,9 @@
         //refactored for Angular 1.6 - removed success/error, used Promises...
         vm.getDepartureWeather = function() {
             
-            var lat = vm.selectedDepartureICAO.airportLat;
+            var lat = vm.lat;
             console.log(lat);
-            var lon = vm.selectedDepartureICAO.airportLon;
+            var lon = vm.lon;
             console.log(lon);            
 
             DarkskyWeather.getWeather(lat, lon)
