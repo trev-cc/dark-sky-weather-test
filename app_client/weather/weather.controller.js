@@ -26,11 +26,12 @@
         if (SelectedData.selectedArrivalICAO !== null) {
             vm.selectedArrivalICAO = SelectedData.selectedArrivalICAO;
         }
-
+        /*
         //check selected weight
         if (SelectedData.selectedWeight !== null) {
             vm.selectedWeight = SelectedData.selectedWeight;
         }
+        */
 
         //refactored for Angular 1.6 - removed success/error, used Promises...
         vm.getDepartureWeather = function() {
@@ -49,7 +50,7 @@
                     console.log(e);
                 });
         }
-
+/*
         //refactored for Angular 1.6 - removed success/error, used Promises...        
         vm.getArrivalWeather = function() {
             
@@ -66,10 +67,10 @@
                     console.log(e);
                 });
         }
-        
+        */
         //call services
         vm.getDepartureWeather();
-        vm.getArrivalWeather();
+        //vm.getArrivalWeather();
 
     }
 

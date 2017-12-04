@@ -8,6 +8,7 @@
         return function(input){
             
             var output = Math.round(input);
+            output += "F";
             
             return output;
             
