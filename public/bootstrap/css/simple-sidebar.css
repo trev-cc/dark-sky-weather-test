@@ -6,6 +6,7 @@
 
  body {
     overflow-x: hidden;
+
  }
 
 /* Toggle Styles */
@@ -92,7 +93,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #ffffff;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

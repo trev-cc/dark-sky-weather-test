@@ -37,12 +37,26 @@
 
         //refactored for Angular 1.6 - removed success/error, used Promises...
         vm.getDepartureWeather = function() {
-            
+            /*
             var lat = vm.lat;
             console.log(lat);
             var lon = vm.lon;
             console.log(lon);            
-
+            */
+            
+            if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showLocation);
+                }else{
+                    console.log('Geolocation is not supported by this browser.');
+                }
+                
+            function showLocation(position){
+            var lat = position.coords.latitude;
+            console.log("latitude: " + lat);
+            
+            var lon = position.coords.longitude;
+            console.log("longitude: " + lon);
+            
             DarkskyWeather.getWeather(lat, lon)
                 .then(function(response) {
                     vm.departureWeather = response.data;
@@ -52,6 +66,31 @@
                     console.log(e);
                 });
         }
+        }
+        
+        
+/*(function(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showLocation);
+                }else{
+                    console.log('Geolocation is not supported by this browser.');
+                }
+            });
+            function showLocation(position){
+                var latitude = position.coords.latitude;
+                console.log("latitude: " + latitude);
+                document.getElementById('<?php echo $this->get_field_id( 'darksky_api_lat' ); ?>')
+                    .setAttribute('value', latitude);
+                var longitude = position.coords.longitude;
+                console.log("longitude: " + longitude);
+                document.getElementById('<?php echo $this->get_field_id( 'darksky_api_lon' ); ?>')
+                    .setAttribute('value', longitude);
+            }
+*/        
+        
+        
+        
+        
 /*
         //refactored for Angular 1.6 - removed success/error, used Promises...        
         vm.getArrivalWeather = function() {
